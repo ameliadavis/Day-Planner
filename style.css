@@ -4,13 +4,12 @@ body {
   line-height: 1;
 }
 
-#description{
+#row{
   background: transparent;
   border: none;
   resize: none;
   color: #000000;
   border-left: 1px solid black;
-  padding: 10px;
 }
 
 .jumbotron {
@@ -19,9 +18,11 @@ body {
   color: black;
   border-radius: 0;
   border-bottom: 10px solid black;
+  padding: 8px;
+
 }
 
-#description{
+.description{
   white-space: pre-wrap;
 }
 
@@ -30,14 +31,13 @@ body {
   border-radius: 15px;
 }
 
-#row {
+.row {
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
-  padding:-10px;
 }
 
-#hour {
+.hour {
   text-align: center;
   background-color: #ffffff;
   color: #000000;
@@ -60,7 +60,7 @@ body {
   color: white;
 }
 
-#saveBtn {
+.saveBtn {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -69,7 +69,7 @@ body {
   color: white;
 }
 
-#saveBtn i:hover {
+.saveBtn i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
 }
