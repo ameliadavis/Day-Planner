@@ -40,42 +40,42 @@ function timePassing (){
     // save button listener
 $(".saveBtn").on("click", function(){
     console.log("register the click");
-    var hourStore = $(this).attr("id")
-    // var descriptStore = $(this).val(".textarea");
-    var descriptStore = $(".textarea").val();
-    console.log(this);
-    console.log("hourStore " + hourStore);
-    console.log("descriptStore " + descriptStore);
-    save();
+    var hourStore = $(this).attr("id");
+    var descriptStore = JSON.stringify($(".description").val());// need to do Jason stingify and parse to make this work. 
 
+
+    // console.log("hourStore " + hourStore);
+    // console.log("descriptStore " + descriptStore);
+    // save(hourStore, descriptStore);
+    save(hourStore, descriptStore);
 
 // function for save button to add content to local storage 
-function save() {
+function save(hStore, dStore) {
     event.preventDefault();
-    // $(".hour").each(function() {
-    // hourStore = parseInt($(this).attr("id"));// should display the numbver of 
-    // console.log(this);
-    // var descriptionEl = $(this).val();
-    // console.log(descriptionEl);
-    localStorage.setItem("this is a test", "this is only a test");
-    localStorage.setItem(hourStore , descriptStore);
-    localStorage.setItem("9", "should say 9");
+
+    console.log(hStore, dStore);
+
+    //localStorage.setItem(blwh);
+    // localStorage.setItem("this is a test", "this is only a test");
+    localStorage.setItem(hStore , dStore);
+    // localStorage.setItem("9", "should say 9");
  };
 });
 
 
 // // this will print the items saved in local storage back to the screen 
 $(document).ready(function(){
-    // $(".hour").each(function() {
-        $(".textarea") = localStorage.getItem("9");
-        $(".textarea") = localStorage.getItem("10");
-        $(".textarea") = localStorage.getItem("11");
-        $(".textarea") = localStorage.getItem("12");
-        $(".textarea") = localStorage.getItem("13");
-        $(".textarea") = localStorage.getItem("14");
-        $(".textarea") = localStorage.getItem("15");
-        $(".textarea") = localStorage.getItem("16");
-        $(".textarea") = localStorage.getItem("17");
+    $(".hour").each(function() {
+        $(".description").innerHTML = localStorage.getItem("9");
+        $(".description").innerHTML = localStorage.getItem("10");
+        $(".description").innerHTML = localStorage.getItem("11");
+        $(".description").innerHTML = localStorage.getItem("12");
+        $(".description").innerHTML = localStorage.getItem("13");
+        $(".description").innerHTML = localStorage.getItem("14");
+        $(".description").innerHTML = localStorage.getItem("15");
+        $(".description").innerHTML = localStorage.getItem("16");
+        $(".description").innerHTML = localStorage.getItem("17");
+});
 });
 
 // from solution 
