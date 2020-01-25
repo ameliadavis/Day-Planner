@@ -16,12 +16,13 @@ console.log("this is the hour element " + hourEl);
 //function to turn hours colors based on time 
 function timePassing (){
     // for(var i = 0; i < $(".hour").length + 1; i++){ // cycle thorugh all the elements on the page
-        $(".hour").each(function() {
+        $(".row").each(function() {
             // console.log(i);
-        var description = $(".hour").length;
+        var description = $(".row").length;
         console.log(description);
         hourEl = parseInt($(this).attr("id"));
         console.log(hourEl);
+        console.log(this);
         if(hourEl < timeNow){
             $(this).addClass("past");
             console.log("past");
@@ -40,25 +41,18 @@ function timePassing (){
     // save button listener
 $(".saveBtn").on("click", function(){
     console.log("register the click");
-    var hourStore = $(this).attr("id");
-    var descriptStore = JSON.stringify($(".description").val());// need to do Jason stingify and parse to make this work. 
-
-
-    // console.log("hourStore " + hourStore);
-    // console.log("descriptStore " + descriptStore);
-    // save(hourStore, descriptStore);
+    var hourStore = parseInt($(this).parents("div").attr("id"));
+    // parent to grab ID sibling to get everything on the same line, dont forget to remove dform the button on the HTML
+    var descriptStore = $(this).siblings("textarea").val();
+    console.log(hourStore);
+    console.log(descriptStore);
     save(hourStore, descriptStore);
 
 // function for save button to add content to local storage 
 function save(hStore, dStore) {
     event.preventDefault();
-
-    console.log(hStore, dStore);
-
-    //localStorage.setItem(blwh);
-    // localStorage.setItem("this is a test", "this is only a test");
     localStorage.setItem(hStore , dStore);
-    // localStorage.setItem("9", "should say 9");
+
  };
 });
 
@@ -66,21 +60,17 @@ function save(hStore, dStore) {
 // // this will print the items saved in local storage back to the screen 
 $(document).ready(function(){
     $(".hour").each(function() {
-        $(".description").innerHTML = localStorage.getItem("9");
-        $(".description").innerHTML = localStorage.getItem("10");
-        $(".description").innerHTML = localStorage.getItem("11");
-        $(".description").innerHTML = localStorage.getItem("12");
-        $(".description").innerHTML = localStorage.getItem("13");
-        $(".description").innerHTML = localStorage.getItem("14");
-        $(".description").innerHTML = localStorage.getItem("15");
-        $(".description").innerHTML = localStorage.getItem("16");
-        $(".description").innerHTML = localStorage.getItem("17");
+        $("#9 .description").val(localStorage.getItem("9"));
+        $("#10 .description").val(localStorage.getItem("10"));
+        $("#11 .description").val(localStorage.getItem("11"));
+        $("#12 .description").val(localStorage.getItem("12"));
+        $("#13 .description").val(localStorage.getItem("13"));
+        $("#14 .description").val(localStorage.getItem("14"));
+        $("#15 .description").val(localStorage.getItem("15"));
+        $("#16 .description").val(localStorage.getItem("16"));
+        $("#17 .description").val(localStorage.getItem("17"));
 });
 });
-
-// from solution 
-// $(document).ready(function() {  // listen for save button clicks  $(".saveBtn").on("click", function() {    // get nearby values    var value = $(this).siblings(".description").val();    var time = $(this).parent().attr("id");
-    // save in localStorage    localStorage.setItem(time, value);  });
 
 // current time
 console.log("this is the current time", moment().format('LTS'));
